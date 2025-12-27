@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Shop - Deep Link Tester</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .link-section {
+            margin: 20px 0;
+        }
+        .link-section h2 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 5px;
+        }
+        a {
+            display: block;
+            padding: 15px 20px;
+            margin: 10px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: 500;
+        }
+        a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        .note {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            color: #555;
+        }
+        .note strong {
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 Gaming Shop Deep Link Tester</h1>
+        <p class="subtitle">Click any link below to test deep linking</p>
+        
+        <div class="note">
+            <strong>📱 Note:</strong> Make sure your Gaming Shop app is installed and running on your device/emulator before testing these links.
+        </div>
+
+        <div class="link-section">
+            <h2>🏠 Main Navigation</h2>
+            <a href="gamingshop:///">Home Page</a>
+            <a href="gamingshop:///login">Login Page</a>
+            <a href="gamingshop:///register">Register Page</a>
+        </div>
+
+        <div class="link-section">
+            <h2>👤 User Pages</h2>
+            <a href="gamingshop:///profile">Profile Page</a>
+            <a href="gamingshop:///orders">Order History</a>
+            <a href="gamingshop:///topup-history">Top-up History</a>
+        </div>
+
+        <div class="link-section">
+            <h2>💰 Transactions</h2>
+            <a href="gamingshop:///topup">Top-up Page</a>
+        </div>
+
+        <div class="link-section">
+            <h2>🎯 Game Details</h2>
+            <a href="gamingshop:///game/sample-game-id-1">Game Detail Page (Sample Game 1)</a>
+            <a href="gamingshop:///game/sample-game-id-2">Game Detail Page (Sample Game 2)</a>
+            <p style="color: #666; font-size: 13px; margin-top: 10px;">
+                <strong>Note:</strong> Replace "sample-game-id-1" with actual game IDs from your database.
+                You can find game IDs in the home page or by checking the API response.
+            </p>
+        </div>
+
+        <div class="note">
+            <strong>💡 How to test:</strong><br>
+            1. Run your Flutter app: <code>flutter run</code><br>
+            2. Open this HTML file in a browser<br>
+            3. Click any link above<br>
+            4. Your device should prompt to open the Gaming Shop app<br>
+            5. The app should navigate to the correct page
+        </div>
+    </div>
+</body>
+</html>

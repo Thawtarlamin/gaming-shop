@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  
+  <!-- Prevent caching -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="gaming_shop">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>Gaming Shop</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://sl-gaming-shop.store">
+  <link rel="dns-prefetch" href="https://sl-gaming-shop.store">
+  
+  <!-- Google Sign In for Web -->
+  <meta name="google-signin-client_id" content="YOUR_WEB_CLIENT_ID.apps.googleusercontent.com">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      overflow: hidden;
+    }
+    #app-container {
+      width: 100vw;
+      height: 100vh;
+    }
+    .splash-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #08652C 0%, #0A7A35 100%);
+      z-index: 9999;
+      transition: opacity 0.5s ease-out;
+    }
+    .splash-screen.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .logo-container {
+      margin-bottom: 30px;
+    }
+    .logo-text {
+      font-size: 48px;
+      font-weight: 700;
+      color: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      letter-spacing: -1px;
+    }
+    .logo-subtitle {
+      font-size: 16px;
+      color: #C5C764;
+      margin-top: 8px;
+      font-weight: 500;
+      letter-spacing: 2px;
+    }
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(255,255,255,0.3);
+      border-top: 3px solid #ffffff;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .loading-text {
+      margin-top: 20px;
+      color: rgba(255,255,255,0.9);
+      font-size: 14px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    /* Progressive enhancement */
+    @media (prefers-reduced-motion: reduce) {
+      .loading-spinner {
+        animation: none;
+        border: 3px solid #ffffff;
+      }
+      .splash-screen {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="splash" class="splash-screen">
+    <div class="logo-container">
+      <div class="logo-text">Gaming Shop</div>
+      <div class="logo-subtitle">GAMING COMMUNITY</div>
+    </div>
+    <div class="loading-spinner"></div>
+    <div class="loading-text">Loading...</div>
+  </div>
+  <div id="app-container"></div>
+  <script src="flutter_bootstrap.js" async defer></script>
+  <script defer>
+    // Hide splash screen when Flutter is ready
+    window.addEventListener('flutter-first-frame', function () {
+      var splash = document.getElementById('splash');
+      if (splash) {
+        splash.classList.add('hidden');
+        setTimeout(function() {
+          splash.style.display = 'none';
+        }, 500);
+      }
+    });
+    
+    // Fallback: hide splash after 10 seconds if flutter doesn't load
+    setTimeout(function() {
+      var splash = document.getElementById('splash');
+      if (splash && splash.style.display !== 'none') {
+        splash.classList.add('hidden');
+      }
+    }, 10000);
+  </script>
+</body>
+</html>
